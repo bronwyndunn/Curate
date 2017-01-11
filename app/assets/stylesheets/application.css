@@ -167,3 +167,7 @@ button:hover {
 .link-to-login:hover {
   text-decoration: underline;
 }
+
+.form-errors {
+  color: #E8095D;
+}

@@ -90,7 +90,10 @@ class SessionForm extends React.Component {
         <h2>Collect your inspiration</h2>
         <div className="login-form-box">
         <form onSubmit={this.handleSubmit} >
-          {this.renderErrors()}
+          <ul className="form-errors">
+            {this.renderErrors()}
+          </ul>
+          <br/>
           <div className="login-form">
             <label>
               <input type="text"
