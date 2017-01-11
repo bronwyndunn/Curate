@@ -15,7 +15,7 @@ class SessionForm extends React.Component {
   this.update = this.update.bind(this);
   this.changeForm = this.changeForm.bind(this);
   this.redirect = this.redirect.bind(this);
-  this.guestSignIn = this.redirect.bind(this);
+  this.guestSignIn = this.guestSignIn.bind(this);
   }
 
   redirect() {
@@ -25,7 +25,7 @@ class SessionForm extends React.Component {
   }
 
   guestSignIn() {
-    const guest = { username: 'guest', password: 'password' };
+    const guest = { username: 'guest', password: 'password'};
     this.props.login(guest).then(() => this.redirect());
   }
 
@@ -75,38 +75,49 @@ class SessionForm extends React.Component {
 
     let header;
     let nav;
+    let name;
     if (this.state.formType === "login") {
-    header = <h1>Log In</h1>;
-    nav = <button id="reverse-form" onClick={this.changeForm}>{"Don't have an account? Sign Up."}</button>;
+    header = "Log In";
+    nav = <a href="#" id="reverse-form" onClick={this.changeForm}>{"Don't have an account? Sign Up."}</a>;
     } else {
-    header = <h1>Sign Up</h1>;
-    nav = <button id="reverse-form" onClick={this.changeForm}>{"Already a member? Log In."}</button>;
+    header = "Sign Up";
+    nav = <a href="#" id="reverse-form" onClick={this.changeForm}>Already a member? <Link to="/login" className="link-to-login">Log In</Link></a>;
     }
     return (
+      <div className="background">
       <div className="login-form-container">
-        {header}
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to Curate
+        <h1>Curate</h1>
+        <h2>Collect your inspiration</h2>
+        <div className="login-form-box">
+        <form onSubmit={this.handleSubmit} >
           {this.renderErrors()}
           <div className="login-form">
-            <label> Username:
+            <label>
               <input type="text"
                 value={this.state.username}
                 onChange={this.update("username")}
-                className="login-input" />
+                className="login-input"
+                placeholder="Username" />
             </label>
-            <label> Password:
+          <br/>
+            <label>
               <input type="password"
                 value={this.state.password}
                 onChange={this.update("password")}
-                className="login-input" />
+                className="login-input"
+                placeholder="Password" />
             </label>
-            <input type="submit" value="Submit" />
-          </div>
+          <br/>
+            </div>
+            <input className="submit-button" type="submit" value={header} />
         </form>
-        <button id="guest-login" onClick={this.guestSignIn}>Continue as a guest</button>
-        <br/>
+        <br />
+        <button id="guest-signin" onClick={this.guestSignIn}>Sign in with a guest account</button>
+        <br />
         {nav}
+      </div>
+      </div>
+        <br/>
       </div>
     );
   }
