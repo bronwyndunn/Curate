@@ -7,6 +7,12 @@
     "doc": "docs",
     "test": "test"
   },
+
+  "engines": {
+  "node": "v6.2.1",
+  "npm": "3.9.3"
+},
+
   "scripts": {
     "postinstall": "./node_modules/.bin/webpack"
   },
@@ -34,8 +40,4 @@
     "redux-thunk": "^2.1.0",
     "webpack": "^1.14.0"
   }
-  "engines": {
-  "node": "v6.2.1",
-  "npm": "3.9.3"
-  },
 }
