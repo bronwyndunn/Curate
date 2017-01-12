@@ -8,14 +8,14 @@
       logIn: {errors: []},
       newPin: {errors: ["You must select an image"]}
     },
-    pins: {
+    boards: {
       1: {
         title: "Pretty color palette",
         description: "Minimalist, warm colors to potentially use for design",
         image_url: "http://www.fubiz.net/2016/01/07/the-minimalist-color-palettes-of-2015/",
         user_id: 1,
         username: "Kitkat"
-        boards: {
+        pins: {
         1: {
           id: 2,
           name: "UX Design"
