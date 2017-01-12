@@ -8,3 +8,8 @@
 
 guest = { username: 'guest', password: 'password' }
 User.create(guest)
+
+board1 = { title: 'board1', description: 'description', user_id: 4 }
+board2 = { title: 'board2', description: 'description2', user_id: 4 }
+Board.create(board1)
+Board.create(board2)
