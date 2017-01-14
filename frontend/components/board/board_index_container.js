@@ -3,6 +3,7 @@ import boardIndex from './board_index';
 import {fetchAllBoards} from '../../actions/board_actions';
 
 const mapStateToProps = (state) => ({
+  user: state.session.currentUser,
   boards: Object.keys(state.boards).map(key => state.boards[key])
 });
 

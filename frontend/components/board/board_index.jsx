@@ -1,4 +1,5 @@
 import React from 'react';
+import BoardCard from './board_card';
 
 class boardIndex extends React.Component {
   constructor(props) {
@@ -6,20 +7,24 @@ class boardIndex extends React.Component {
   }
 
   componentDidMount() {
-    const id = this.props.params.user_id;
+    const id = this.props.user.id;
     this.props.fetchAllBoards(id);
   }
 
   render() {
     return (
-      <div className="boards">
+      <section className="user-container">
+        <div className="user-profile">
+          <img className="profile-picture" src={this.props.user.image_url}/>
+          <div className="username">{this.props.user.username}</div>
+        </div>
+
+        <div className="user-boards">
           {this.props.boards.map(board => (
-            <div className="board-body" key={board.id}>
-              <p className="board-title">{board.title}</p>
-              <p className="board-description">{board.description}</p>
-          </div>
+            <BoardCard board={board}></BoardCard>
           ))}
-      </div>
+        </div>
+      </section>
     );
   }
 }
