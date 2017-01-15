@@ -11,6 +11,7 @@ class boardIndex extends React.Component {
     this.props.fetchAllBoards(id);
   }
 
+
   render() {
     return (
       <section className="user-container">

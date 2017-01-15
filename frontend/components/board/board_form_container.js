@@ -1,9 +1,5 @@
 import { connect } from 'react-redux';
-import BoardCard from './board_card';
-import {fetchBoard,
-  createBoard,
-  updateBoard,
-  deleteBoard} from '../../actions/board_actions';
+import createBoard from '../../actions/board_actions';
 import BoardForm from './board_form';
 
   const mapStateToProps = (state) => ({
@@ -12,13 +8,10 @@ import BoardForm from './board_form';
   });
 
   const mapDispatchToProps = (dispatch, ownProps) => ({
-    fetchBoard: id => dispatch(fetchBoard(id)),
-    updateBoard: board => dispatch(updateBoard(board)),
     createBoard: board => dispatch(createBoard(createBoard)),
-    deleteBoard: id => dispatch(deleteBoard(id))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BoardCard);
+)(BoardForm);
