@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import React from 'react';
-import ModalStyle from './modal_style';
+import ModalStyle from '../modal_style';
 
 
 class BoardForm extends React.Component {

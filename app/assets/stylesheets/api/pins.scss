@@ -5,13 +5,17 @@
 .single-pin {
   position: relative;
   height: auto;
-// width: auto;
-  width: 300px;
-// max-height: 300px;
+  width: 400px;
   padding: 5px;
 }
 
+.pin-index {
+  padding-left: 20px;
+}
 
+.pin-image {
+  border-radius: 15px;
+}
 .pin-image:hover {
   filter:brightness(70%);
 }
