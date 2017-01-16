@@ -15,7 +15,13 @@ board2 = { title: 'Patterns', description: 'Patterns and symmetry', user_id: 1 }
 
 pin1 = {title: 'Atlanta made', description: 'Cool font on building', image_url: 'http://res.cloudinary.com/bronwyndunn/image/upload/v1484451886/iiluzop4ya-ian-schneider_u0fvbe.jpg', user_id: 1, board_id: 1};
 pin2 = {title: 'Building windows', description: 'Cool symmetry with building windows', image_url: 'http://res.cloudinary.com/bronwyndunn/image/upload/v1484505071/lca3h4jsjvu-michael-suriano_wcpieq.jpg', user_id: 1, board_id: 2};
+pin3 = {title: 'Bike typography', description: 'Cute typogaphy onbike', image_url: 'http://res.cloudinary.com/bronwyndunn/image/upload/v1484543733/vocdywygncc-clem-onojeghuo_jnrwbw.jpg', user_id: 1, board_id: 1};
+pin4 = {title: 'Good', description: 'Blue and orange type', image_url: 'http://res.cloudinary.com/bronwyndunn/image/upload/v1484543739/s_xvv-l8q4i-gemma-evans_wzphqk.jpg', user_id: 1, board_id: 1};
+
+
 Board.create(board1)
 Board.create(board2)
 Pin.create(pin1)
 Pin.create(pin2)
+Pin.create(pin3)
+Pin.create(pin4)

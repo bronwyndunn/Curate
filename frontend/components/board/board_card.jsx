@@ -1,4 +1,5 @@
 import React from 'react';
+import BoardPin from './board_pin';
 
 class BoardCard extends React.Component {
   constructor(props) {
@@ -21,6 +22,9 @@ class BoardCard extends React.Component {
         <div className="board-card">
           <div className="board-card-title">{this.props.board.title}</div>
           <div className="board-card-body">{this.props.board.description}</div>
+          <div className="pin-images">
+
+          </div>
         </div>
       </section>
     );

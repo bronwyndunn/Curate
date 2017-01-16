@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.fetchAllBoards = fetchAllBoards;
+  window.fetchBoard = fetchBoard;
   window.store = store;
   window.fetchPins = fetchPins;
   window.fetchFeed = fetchFeed;
