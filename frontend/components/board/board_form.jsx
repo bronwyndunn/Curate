@@ -27,7 +27,7 @@ class BoardForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const board = this.state;
-    this.props.createBoard({ board });
+    this.props.createBoard({ board }).then(this.closeModal);
   }
 
 

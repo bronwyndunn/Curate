@@ -1,4 +1,7 @@
 import React from 'react';
+import PinIndexItem from './pin_index_item';
+var Masonry = require('react-masonry-component');
+
 
 class PinCard extends React.Component {
   constructor(props) {
@@ -14,22 +17,35 @@ class PinCard extends React.Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({title: nextProps.pin.title });
-    this.setState({description: nextProps.pin.description });
-    this.setState({url: nextProps.pin.url });
-    this.setState({board_id: nextProps.pin.board_id });
-    this.setState({image_url: nextProps.pin.image_url });
+  componentDidMount() {
+    this.props.fetchPins(this.props.user.id);
   }
 
+
   render() {
+    const {pins} = this.props;
+    let pinImages;
+    if ( pins.length > 0 ) {
+
+      pinImages = pins.map((pin, i) => (
+        <div className="single-pin">
+          <PinIndexItem pin={pin}></PinIndexItem>
+        </div>
+      ));
+    }
+    // <li key={i}><img src={pin.image_url} /></li>
+
     return(
       <div className="pin-container">
-        {this.props.user.pins.title}
-        {this.props.user.pins.image_url}
+          <Masonry className="pin-index" elementType={'div'} >
+          {pinImages}
+          </Masonry>
       </div>
     );
   }
 }
 
 export default PinCard;
+
+// {this.props.user.pins.title}
+// {this.props.user.pins.image_url}

@@ -5,10 +5,8 @@ import PinContainer from './pin/pin_card_container';
 
 const App = ({ children }) => (
   <div>
-    <h1>Curate</h1>
-    <PinContainer />
     <GreetingContainer />
-    { children }
+    <PinContainer />
   </div>
 );
 

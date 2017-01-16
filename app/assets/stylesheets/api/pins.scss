@@ -1,3 +1,35 @@
 // Place all the styles related to the Api::Pins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.single-pin {
+  position: relative;
+  height: auto;
+// width: auto;
+  width: 300px;
+// max-height: 300px;
+
+}
+
+.pin-info .pin-title {
+  position: absolute;
+  display: none;
+
+}
+
+.pin-info:hover {
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
+
+
+}
+.pin-info:hover .pin-title {
+  width: 100%;
+  position: absolute;
+  display: block;
+  text-align: center;
+  top: 50%;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  background-color: black;
+}
