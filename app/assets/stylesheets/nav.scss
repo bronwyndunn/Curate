@@ -1,0 +1,36 @@
+.navbar {
+  margin-top: 8px;
+  height: 4000px;
+  width: 268px;
+  position: fixed;
+  background-color: #7D9D86;
+  left: -220px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.4s;
+}
+
+ .fa-bars {
+  color: black;
+  position: absolute;
+  right: 17px;
+  top: 25px;
+  z-index: 2;
+  color: black;
+}
+
+.navbar:hover {
+  left: 0;
+}
+
+.menu-links {
+  text-align: center;
+  padding-top: 100px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+}
+
+.menu-links a {
+  margin-bottom: 20px;
+
+}

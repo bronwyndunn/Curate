@@ -43,3 +43,36 @@
   filter: brightness(100%);
   z-index: 1;
 }
+
+.pin-modal-image {
+  height: auto;
+  width: 400px;
+}
+
+.pin-modal-info h3 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.pin-modal-info h4 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.pin-index {
+  display: flex;
+  margin-left: 35px;
+}
+
+.navbar:hover+.pin-container {
+  margin-left: 220px;
+  width: calc(100% - 220px);
+
+}
+
+.pin-container {
+  width: 100%;
+  transition: all 0.4s;
+}

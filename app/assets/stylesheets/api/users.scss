@@ -2,24 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
 .user-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .user-profile {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 50px 0 0 50px;
   font-size: 50px;
   color: rgb(74, 74, 74);
-  justify-content: flex-start;
   left: 20%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  text-transform: capitalize;
+  align-items: center;
 }
 
-.user-boards {
-  display: flex;
-  flex-direction: column;
+.board-card-container {
+  height: 320px;
 }
 
 .profile-picture {
@@ -28,24 +33,109 @@
     border-radius: 50%;
     width: 160px;
     height: 160px;
-    margin-right: 50px;
-    // box-shadow: 0 15px 15px -10px rgba(0, 0, 0, 0.8);
+
 }
 
 .username {
   display: flex;
-  line-height: 30px;
+  line-height: 35px;
 }
 
-.user-boards {
+.user-boards, .new-board {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding-top: 60px;
 }
 
 .board-body {
   display: flex;
   flex-direction: column;
   padding: 20px;
+}
 
+.fa-plus-circle {
+
+  color: #E8095D;
+  font-size: 30px;
+}
+
+.new-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 293px;
+  width: 256px;
+  padding-bottom: 40px;
+  margin: 10px;
+  padding-top: 6px;
+  border-radius: 4px;
+}
+
+.new-board:hover {
+  background-color: #efefef;
+}
+
+.new-board-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 273px;
+  width: 236px;
+  background-color: #efefef;
+  font-size: 40px;
+  padding-top: 10px;
+}
+
+.new-board:hover .new-board-icon{
+  background-color: #cfcfcf;
+}
+
+.card-board-images {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+}
+
+.board-card-image {
+  width: 50%;
+  border-radius: 2px;
+}
+
+.smaller-images {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.board-card-image div:nth-child(1) {
+  border-bottom-left-radius: 2px;
+}
+
+.primary-board-card-image {
+  height: 200px;
+  overflow: hidden;
+}
+.primary-board-card-image img {
+}
+
+.smaller-images img {
+}
+
+.board-card-body {
+  display: none;
+}
+
+.board-card-title {
+  padding-top: 10px;
+  color: rgb(74, 74, 74);
+
+}
+
+.board-card-container {
+  border-color: transparent;
+}
+
+.board-card-container:hover {
+  background-color: #efefef;
 }

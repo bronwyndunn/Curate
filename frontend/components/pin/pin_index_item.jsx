@@ -41,6 +41,11 @@ class PinIndexItem extends React.Component {
           style={ModalStyle}>
           <div className="pin-modal-container">
             <img className="pin-modal-image" src={this.props.pin.image_url}/>
+            <div className="pin-modal-info">
+              <h3>{this.props.pin.title}</h3>
+              <br />
+              <h4>{this.props.pin.description}</h4>
+            </div>
           </div>
         </Modal>
       </div>

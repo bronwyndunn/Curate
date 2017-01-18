@@ -20,10 +20,20 @@ class BoardCard extends React.Component {
     return (
       <section className="board-card-container">
         <div className="board-card">
-          <div className="board-card-title">{this.props.board.title}</div>
           <div className="board-card-body">{this.props.board.description}</div>
-          <div className="pin-images">
-
+          <div className="card-board-images">
+            <div className="primary-board-card-image" >
+              <img src={this.props.board.primary_image} />
+            </div>
+            <div className="smaller-images">
+              <div className="board-card-image">
+                <img src={this.props.board.secondary_image} />
+              </div>
+              <div className="board-card-image">
+                <img src={this.props.board.tertiary_image} />
+              </div>
+            </div>
+            <div className="board-card-title">{this.props.board.title}</div>
           </div>
         </div>
       </section>

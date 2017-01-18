@@ -1,6 +1,6 @@
 class Api::BoardsController < ApplicationController
   def index
-    @boards = Board.where(user_id: current_user.id)
+    @boards = Board.where(user_id: current_user.id).includes(:pins)
   end
 
   def show
