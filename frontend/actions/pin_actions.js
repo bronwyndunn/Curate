@@ -2,6 +2,7 @@ import * as PinApiUtil from '../util/pin_api_util';
 export const RECEIVE_PINS = "RECEIVE_PINS";
 export const RECEIVE_PIN = "RECEIVE_PIN";
 export const REMOVE_PIN = "REMOVE_PIN";
+export const RECEIVE_BOARD_PINS = "RECEIVE_BOARD_PINS";
 
 export const fetchFeed = (userId) => dispatch => (
   PinApiUtil.fetchFeed(userId).then(data => dispatch(receivePins(data)))
@@ -23,6 +24,10 @@ export const deletePin = (id) => dispatch => (
   PinApiUtil.deletePin(id).then(data => dispatch(removePin(data)))
 );
 
+export const fetchBoardPins = (boardId) => dispatch => (
+  PinApiUtil.fetchBoardPins(boardId).then(pins => dispatch(receiveBoardPins(pins)))
+);
+
 export const receivePins = (pins) => ({
   type: RECEIVE_PINS,
   pins
@@ -36,4 +41,9 @@ export const receivePin = (pin) => ({
 export const removePin = (pin) => ({
   type: REMOVE_PIN,
   pin
+});
+
+export const receiveBoardPins = (pins) => ({
+  type: RECEIVE_BOARD_PINS,
+  pins
 });

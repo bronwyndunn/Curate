@@ -12,6 +12,14 @@ export const fetchPins = (userId) => (
   })
 );
 
+export const fetchBoardPins = (board_id) => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/pins`,
+    data: {board_id}
+  })
+);
+
 export const fetchPin = (id) => (
   $.ajax({
     method: 'GET',
