@@ -5,7 +5,7 @@ import Root from './components/root';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { fetchAllBoards, fetchBoard, createBoard, updateBoard, deleteBoard } from './actions/board_actions';
 import Modal from 'react-modal';
-import {fetchFeed, fetchPins, fetchPin, createPin, deletePin} from './actions/pin_actions';
+import {fetchFeed, fetchBoardPins, fetchPins, fetchPin, createPin, deletePin} from './actions/pin_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.fetchAllBoards = fetchAllBoards;
   window.fetchBoard = fetchBoard;
+  window.fetchBoardPins = fetchBoardPins;
   window.store = store;
   window.fetchPins = fetchPins;
   window.fetchFeed = fetchFeed;
