@@ -7,6 +7,8 @@ import BoardIndexContainer from './board/board_index_container';
 import UserProfile from './user/user_profile';
 import BoardFormContainer from './board/board_form_container';
 import BoardPinsContainer from './board/board_pins_container';
+import PinContainer from './pin/pin_card_container';
+import SearchIndexContainer from './search/search_index_container';
 
 
 const Root = ({ store }) => {
@@ -28,12 +30,15 @@ const Root = ({ store }) => {
   return(
     <Provider store={ store }>
       <Router history={ hashHistory }>
-        <Route path="/" component={ App } onEnter={_ensureLoggedIn} />
-          <Route path="/login" component={ SessionFormContainer } onEnter={_redirectIfLoggedIn} />
-          <Route path="/signup" component={ SessionFormContainer } onEnter={_redirectIfLoggedIn}/>
+        <Route path="/login" component={ SessionFormContainer } onEnter={_redirectIfLoggedIn} />
+        <Route path="/signup" component={ SessionFormContainer } onEnter={_redirectIfLoggedIn}/>
+        <Route path="/" component={ App } onEnter={_ensureLoggedIn} >
+          <Route path='/search' component={SearchIndexContainer} />
+          <IndexRoute component={PinContainer} />
           <Route path="/home" component ={ UserProfile } />
           <Route path="/:user_id" component ={ UserProfile } />
           <Route path="/boards/:boardId" component ={BoardPinsContainer} />
+        </Route>
       </Router>
     </Provider>
   );

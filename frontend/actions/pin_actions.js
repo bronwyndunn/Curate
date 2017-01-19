@@ -28,6 +28,10 @@ export const fetchBoardPins = (boardId) => dispatch => (
   PinApiUtil.fetchBoardPins(boardId).then(pins => dispatch(receiveBoardPins(pins)))
 );
 
+export const searchPins = (keyword) => dispatch => (
+  PinApiUtil.searchPins(keyword).then(pins => dispatch(receivePins(pins)))
+);
+
 export const receivePins = (pins) => ({
   type: RECEIVE_PINS,
   pins

@@ -41,3 +41,11 @@ export const deletePin = (pin) => (
     url: `/api/pins/${pin.id}`
   })
 );
+
+export const searchPins = (query) => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/pins`,
+    data: query 
+  })
+);

@@ -14,7 +14,6 @@ class UserProfile extends React.Component {
   render(){
     return(
       <div>
-        <NavBar className="user-nav" />
         <BoardIndexContainer />
       </div>
     );

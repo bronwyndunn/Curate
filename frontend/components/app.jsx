@@ -7,9 +7,8 @@ import NavBar from './nav_bar';
 
 const App = ({ children }) => (
   <div>
-    <GreetingContainer />
     <NavBar />
-    <PinContainer />
+    {children}
   </div>
 );
 

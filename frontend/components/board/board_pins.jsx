@@ -27,6 +27,7 @@ class BoardPins extends React.Component {
     const {pins} = this.props;
     let boardTitle;
     let pinImages;
+    let boardDescription;
     if ( pins.length > 0 ) {
 
       pinImages = pins.map((pin, i) => (
@@ -36,15 +37,21 @@ class BoardPins extends React.Component {
       ));
 
       boardTitle = pins[0].board_title;
+      boardDescription = pins[0].board_description;
     }
     // <li key={i}><img src={pin.image_url} /></li>
 
     return(
-      <div className="pin-container">
-        {boardTitle}
-          <Masonry className="pin-index" elementType={'div'} >
-          {pinImages}
-          </Masonry>
+      <div className="board-pin-container">
+        <div className="board-pin-info">
+          <div className="board-pin-title">{boardTitle}</div>
+          <div className="board-pin-description">{boardDescription}</div>
+        </div>
+        <div className="masonry-container">
+            <Masonry className="pin-index" elementType={'div'} >
+            {pinImages}
+            </Masonry>
+          </div>
       </div>
     );
   }

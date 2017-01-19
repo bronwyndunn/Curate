@@ -1,6 +1,7 @@
 import React from 'react';
 import PinIndexItem from './pin_index_item';
 var Masonry = require('react-masonry-component');
+import GreetingContainer from '../greeting/greeting_container';
 
 
 class PinCard extends React.Component {
@@ -18,7 +19,9 @@ class PinCard extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPins(this.props.user.id);
+    if (location.hash !== "#/search") {
+      this.props.fetchPins(this.props.user.id);
+    }
   }
 
 
@@ -37,9 +40,12 @@ class PinCard extends React.Component {
 
     return(
       <div className="pin-container">
-          <Masonry className="pin-index" elementType={'div'} >
-          {pinImages}
+        <GreetingContainer />
+        <div className="masonry-container">
+          <Masonry className="pin-index" elementType={'div'} options={{isFitWidth: true}} >
+            {pinImages}
           </Masonry>
+        </div>
       </div>
     );
   }

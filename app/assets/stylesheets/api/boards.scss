@@ -19,3 +19,22 @@
 .board-card-title {
   font-size: 20px;
 }
+
+.board-pin-info {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  margin-left: 35px;
+  align-items: baseline;
+}
+
+.board-pin-title {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 25px;
+}
+
+.board-pin-description {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  padding-left: 15px;
+}

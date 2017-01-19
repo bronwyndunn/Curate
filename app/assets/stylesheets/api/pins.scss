@@ -7,11 +7,16 @@
   height: auto;
   width: 400px;
   padding: 5px;
+
 }
 
-.pin-index {
-  padding-left: 20px;
+.masonry-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 40px;
 }
+
+
 
 .pin-image {
   border-radius: 15px;
@@ -59,11 +64,6 @@
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 14px;
   font-weight: normal;
-}
-
-.pin-index {
-  display: flex;
-  margin-left: 35px;
 }
 
 .navbar:hover+.pin-container {

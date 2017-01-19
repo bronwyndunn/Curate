@@ -4,6 +4,9 @@ class Api::PinsController < ApplicationController
       @pins = Pin.where(board_id: params[:board_id])
     elsif params[:user_id]
       @pins = Pin.where(user_id: current_user.id)
+    elsif query
+      @pins = Pin.where(['title ILIKE :query OR description ILIKE :query',
+      { query: "%#{query}%" }])
     else
       @pins = Pin.all
     end
@@ -37,7 +40,14 @@ class Api::PinsController < ApplicationController
     end
   end
 
+  private
+
+  def query
+    params[:query]
+  end
+
   def pin_params
     params.require(:pin).permit(:title, :description, :url, :image_url, :user_id, :board_id)
   end
+
 end
