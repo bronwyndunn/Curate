@@ -1,5 +1,6 @@
 import React from 'react';
 import BoardPin from './board_pin';
+import {hashHistory} from 'react-router';
 
 class BoardCard extends React.Component {
   constructor(props) {
@@ -9,6 +10,11 @@ class BoardCard extends React.Component {
       description: "",
       user_id: this.props.currentUser
     };
+    this.redirectToBoard = this.redirectToBoard.bind(this);
+  }
+
+  redirectToBoard() {
+    hashHistory.push(`boards/${this.props.board.id}`);
   }
 
   ComponentWillReceiveProps(nextProps) {
@@ -19,7 +25,7 @@ class BoardCard extends React.Component {
   render() {
     return (
       <section className="board-card-container">
-        <div className="board-card">
+        <div className="board-card" onClick={this.redirectToBoard}>
           <div className="board-card-body">{this.props.board.description}</div>
           <div className="card-board-images">
             <div className="primary-board-card-image" >

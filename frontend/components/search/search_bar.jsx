@@ -33,7 +33,11 @@ class SearchBar extends React.Component {
   render() {
     return(
       <form className="search-form" onSubmit={this.redirectToSearch}>
-        <input type="text" className="search-bar" value={this.state.query} onChange={this.update()} placeholder="Search a pin"></input>
+        <input type="text"
+          className="search-bar"
+          value={this.state.query}
+          onChange={this.update()}
+          placeholder="Search a pin"></input>
       </form>
     );
   }

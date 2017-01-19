@@ -9,6 +9,7 @@ import BoardFormContainer from './board/board_form_container';
 import BoardPinsContainer from './board/board_pins_container';
 import PinContainer from './pin/pin_card_container';
 import SearchIndexContainer from './search/search_index_container';
+import HomeContainer from './home/home_container';
 
 
 const Root = ({ store }) => {
@@ -33,9 +34,10 @@ const Root = ({ store }) => {
         <Route path="/login" component={ SessionFormContainer } onEnter={_redirectIfLoggedIn} />
         <Route path="/signup" component={ SessionFormContainer } onEnter={_redirectIfLoggedIn}/>
         <Route path="/" component={ App } onEnter={_ensureLoggedIn} >
+          <IndexRoute component={HomeContainer} />
           <Route path='/search' component={SearchIndexContainer} />
           <IndexRoute component={PinContainer} />
-          <Route path="/home" component ={ UserProfile } />
+          <Route path="/boards" component ={ UserProfile } />
           <Route path="/:user_id" component ={ UserProfile } />
           <Route path="/boards/:boardId" component ={BoardPinsContainer} />
         </Route>

@@ -5,7 +5,7 @@
 .single-pin {
   position: relative;
   height: auto;
-  width: 400px;
+  width: 420px;
   padding: 5px;
 
 }
@@ -15,8 +15,6 @@
   justify-content: center;
   margin-left: 40px;
 }
-
-
 
 .pin-image {
   border-radius: 15px;
@@ -75,4 +73,17 @@
 .pin-container {
   width: 100%;
   transition: all 0.4s;
+}
+
+.navbar:hover+.board-pin-container {
+  margin-left: 220px;
+  width: calc(100% - 220px);
+
+}
+
+
+.board-pin-container {
+    width: 100%;
+    transition: all 0.4s;
+
 }

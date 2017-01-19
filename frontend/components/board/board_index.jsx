@@ -29,6 +29,7 @@ class boardIndex extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     const board = this.state;
     this.props.createBoard({ board }).then(this.closeModal);

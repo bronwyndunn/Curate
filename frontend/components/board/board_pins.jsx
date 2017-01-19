@@ -22,6 +22,12 @@ class BoardPins extends React.Component {
     this.props.fetchBoardPins(this.props.params.boardId);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.params.boardId !== this.props.params.boardId) {
+      this.props.fetchBoardPins(nextProps.params.boardId);
+    }
+  }
+
 
   render() {
     const {pins} = this.props;
@@ -48,7 +54,7 @@ class BoardPins extends React.Component {
           <div className="board-pin-description">{boardDescription}</div>
         </div>
         <div className="masonry-container">
-            <Masonry className="pin-index" elementType={'div'} >
+            <Masonry className="pin-index" elementType={'div'} options={{isFitWidth: true}} >
             {pinImages}
             </Masonry>
           </div>

@@ -2,13 +2,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const sessionLinks = () => (
-  <nav className="login-signup">
-    <Link to="/login" activeClassName="current">Login</Link> or
-    <Link to="/signup" activeClassName="current">Sign up!</Link>
-  </nav>
-);
-
 const personalGreeting = (currentUser, logout) => (
 	<hgroup className="header-group">
     <h2 className="header-name">Curate</h2>
