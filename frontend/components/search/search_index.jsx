@@ -13,7 +13,6 @@ class SearchIndex extends React.Component {
     return(
       <div>
         <div>
-          <h1>Search Results</h1>
           <PinCard pins={this.props.pins}></PinCard>
         </div>
       </div>

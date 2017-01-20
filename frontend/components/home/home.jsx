@@ -125,13 +125,14 @@ class Home extends React.Component {
                       <br />
                     </label>
 
+                    <img src={this.state.pinInfo.image_url} />
                       <Dropzone
                         multiple={false}
                         accept="image/*"
                         onDrop={this.onImageDrop.bind(this)}>
-                        <p>Drop an image or click to select a file.</p>
+
                       </Dropzone>
-                    <img src={this.state.pinInfo.image_url} />
+                      <p className="new-pin-image-text">Drop an image or click to select a file.</p>
 
                       <input type="submit" value="Submit" />
                   </form>

@@ -104,6 +104,8 @@
 .board-card-image {
   width: 50%;
   border-radius: 2px;
+  height: 80px;
+  overflow: hidden;
 }
 
 .smaller-images {
@@ -121,6 +123,10 @@
   overflow: hidden;
 }
 .primary-board-card-image img {
+  display: block;
+  width: auto;
+  height: 200px;
+  overflow: hidden;
 }
 
 .smaller-images img {
@@ -137,7 +143,7 @@
 }
 
 .board-card-container {
-  border-color: transparent;
+  border: 1px solid darkgrey;
 }
 
 .board-card-container:hover {

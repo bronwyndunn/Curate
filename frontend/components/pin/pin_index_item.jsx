@@ -2,19 +2,22 @@ import React from 'react';
 import Modal from 'react-modal';
 import ModalStyle from '../modal_style';
 import { Link } from 'react-router';
-
-
+import PinFormContainer from './pin_form_container';
 
 class PinIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       modalOpen: false,
-      modalType: 'newPin'
+      modalType: 'newPin',
+      pinModalOpen: false,
+      pinModalType: 'pinPin'
     };
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.pinModalOpen = this.pinModalOpen.bind(this);
+    this.pinCloseModal = this.pinCloseModal.bind(this);
   }
 
   openModal(modalType) {
@@ -24,8 +27,19 @@ class PinIndexItem extends React.Component {
     });
   }
 
+  pinModalOpen(pinModalType) {
+    this.setState({
+      pinModalOpen: true,
+      pinModalType
+    });
+  }
+
   closeModal() {
     this.setState({modalOpen: false});
+  }
+
+  pinCloseModal() {
+    this.setState({pinModalOpen: false});
   }
 
   render() {
@@ -51,9 +65,18 @@ class PinIndexItem extends React.Component {
                   <Link to={`/boards/${this.props.pin.board_id}`} className="pin-link"> {this.props.pin.board_title}</Link>
                   </h4>
               </div>
-              <span className="thumb-tack"></span>
+              <span className="thumb-tack" onClick={this.pinModalOpen}></span>
             </div>
           </div>
+        </Modal>
+
+        <Modal
+          contentLabel = "pinPin"
+          isOpen={this.state.pinModalOpen}
+          onRequestClose={this.pinCloseModal}
+          style={ModalStyle}>
+          <PinFormContainer
+            modalClose={this.pinModalClose}/>
         </Modal>
       </div>
 

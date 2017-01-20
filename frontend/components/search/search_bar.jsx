@@ -11,6 +11,8 @@ class SearchBar extends React.Component {
     this.state = {
       query: ""
     };
+
+    this.clearForm = this.clearForm.bind(this);
   }
 
   update() {
@@ -26,7 +28,15 @@ class SearchBar extends React.Component {
   }
 
   redirectToSearch(e) {
+
     this.props.searchPins(this.state).then(hashHistory.push('/search'));
+
+    this.clearForm();
+
+  }
+
+  clearForm() {
+    this.setState({query: ""});
   }
 
 
