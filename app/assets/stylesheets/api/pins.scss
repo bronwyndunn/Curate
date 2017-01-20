@@ -52,6 +52,28 @@
   width: 400px;
 }
 
+.pin-modal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.thumb-tack::before {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-size: 30px;
+  text-decoration: inherit;
+  padding: 0 0 0 0;
+  content: "\f08d";
+}
+
+.pin-modal-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .pin-modal-info h3 {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 20px;
@@ -73,6 +95,7 @@
 .pin-container {
   width: 100%;
   transition: all 0.4s;
+
 }
 
 .navbar:hover+.board-pin-container {
@@ -86,4 +109,8 @@
     width: 100%;
     transition: all 0.4s;
 
+}
+
+.pin-link:hover {
+  text-decoration: underline;
 }

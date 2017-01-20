@@ -8,7 +8,6 @@ const personalGreeting = (currentUser, logout) => (
     <div className="heading-border">
       <div className="border"></div>
     </div>
-    <button className="header-button" onClick={logout}>Log Out</button>
 	</hgroup>
 );
 

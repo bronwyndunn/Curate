@@ -3,7 +3,7 @@
   height: 4000px;
   width: 268px;
   position: fixed;
-  background-color: #7D9D86;
+  background-color: #ebebeb;
   left: -220px;
   display: flex;
   flex-direction: column;
@@ -28,6 +28,10 @@
   padding-top: 100px;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  justify-content: space-around;
 }
 
 .menu-item {

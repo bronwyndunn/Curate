@@ -23,9 +23,7 @@ class NavBar extends React.Component {
         <div className="menu-links">
           <SearchBarContainer />
           <Link to='/'>Feed</Link>
-          <br />
           <Link to='/home'>Profile</Link>
-          <br />
           <button className="header-button" onClick={this.handleClick}>Log Out</button>
           {
             this.props.user.boards.map(function(board, idx) {

@@ -46,6 +46,6 @@ export const searchPins = (query) => (
   $.ajax({
     method: 'GET',
     url: `/api/pins`,
-    data: query 
+    data: query
   })
 );

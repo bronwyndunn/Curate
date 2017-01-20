@@ -1,23 +1,25 @@
 import Modal from 'react-modal';
+import {merge} from 'lodash';
 import { Link, withRouter } from 'react-router';
 import ModalStyle from '../modal_style';
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
-const CLOUDINARY_UPLOAD_PRESET = 'bronwyndunn';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/curateapp/upload';
+const CLOUDINARY_UPLOAD_PRESET = 'e6dhjw9j';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/bronwyndunn/upload';
 
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      description: "",
-      url: "",
-      user_id: this.props.currentUser,
-      board_id: this.props.pins.board_id,
-      image_url: "",
+      pinInfo: {
+        title: "",
+        description: "",
+        url: "",
+        board_id: this.props.pins.board_id,
+        image_url: "",
+      },
       modalOpen: false,
       modalType: 'newPin'
     };
@@ -28,13 +30,14 @@ class Home extends React.Component {
 
   update(field) {
     return e => this.setState({
-      [field]: e.currentTarget.value
+      pinInfo:
+        merge({}, this.state.pinInfo, {[field]: e.currentTarget.value})
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPin(this.state).then(this.closeModal);
+    this.props.createPin(this.state.pinInfo).then(this.closeModal);
   }
 
   openModal(modalType) {
@@ -49,9 +52,6 @@ class Home extends React.Component {
   }
 
   onImageDrop(files) {
-    this.setState({
-      image_url: files[0]
-    });
     this.handleImageUpload(files[0]);
   }
 
@@ -66,8 +66,11 @@ class Home extends React.Component {
         }
 
         if (response.body.secure_url !== '') {
+          console.log("success");
+          console.log(this.state);
           this.setState({
-            image_url: response.body.secure_url
+            pinInfo:
+              merge({}, this.state.pinInfo, {image_url: response.body.secure_url})
           });
         }
       });
@@ -76,8 +79,8 @@ class Home extends React.Component {
   render() {
     return(
       <div className="new-pin-container">
-        <div className="floating-pin-button">
-            <i className="fa fa-plus" onClick={this.openModal.bind(this, 'newPin')}></i>
+        <div className="floating-pin-button" onClick={this.openModal.bind(this, 'newPin')}>
+            <i className="fa fa-plus"></i>
               <Modal
                 contentLabel = "Modal"
                 isOpen={this.state.modalOpen}
@@ -91,20 +94,34 @@ class Home extends React.Component {
                         type="text"
                         value={this.state.title}
                         onChange={this.update("title")}
-                        className="pin-name">
+                        className="pin-name"
+                        >
                       </input>
                     </label>
 
-                    <label> Pin description:
+                    <label> Say something about this pin:
                       <input
                         type="text"
                         value={this.state.description}
                         onChange={this.update("description")}
-                        className="pin-description">
+                        className="pin-description"
+                        >
                       </input>
                     </label>
 
-                    <label className="new-pin-image"> Pin image:
+                    <label>
+                      <select onChange={this.update("board_id")}>
+                        <option selected disabled>--Choose a board--</option>
+                        {
+                          this.props.currentUser.boards.map(board =>
+                            <option value={board.id} key={board.id}>{board.title}</option>
+                          )
+                        }
+                      </select>
+                    </label>
+                    <br />
+
+                    <label className="new-pin-image">
                       <br />
                     </label>
 
@@ -112,8 +129,9 @@ class Home extends React.Component {
                         multiple={false}
                         accept="image/*"
                         onDrop={this.onImageDrop.bind(this)}>
-                        <p>Drop an image or click to select a file to upload.</p>
+                        <p>Drop an image or click to select a file.</p>
                       </Dropzone>
+                    <img src={this.state.pinInfo.image_url} />
 
                       <input type="submit" value="Submit" />
                   </form>
