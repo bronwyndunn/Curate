@@ -76,7 +76,8 @@ class PinIndexItem extends React.Component {
           onRequestClose={this.pinCloseModal}
           style={ModalStyle}>
           <PinFormContainer
-            modalClose={this.pinModalClose}/>
+            modalClose={this.pinModalClose}
+            imageUrl={this.props.pin.image_url}/>
         </Modal>
       </div>
 

@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 import {merge} from 'lodash';
-import { Link, withRouter } from 'react-router';
+import { Link, withRouter, hashHistory } from 'react-router';
 import ModalStyle from '../modal_style';
 import React from 'react';
 import Dropzone from 'react-dropzone';
@@ -26,6 +26,13 @@ class Home extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.clearForm = this.clearForm.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.user) {
+      hashHistory.push('/signup');
+    }
   }
 
   update(field) {
@@ -35,9 +42,17 @@ class Home extends React.Component {
     });
   }
 
+  clearForm() {
+    this.setState({
+      pinInfo:
+        {image_url: ""}
+      });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.createPin(this.state.pinInfo).then(this.closeModal);
+
   }
 
   openModal(modalType) {
@@ -49,6 +64,7 @@ class Home extends React.Component {
 
   closeModal() {
     this.setState({modalOpen: false});
+    this.clearForm();
   }
 
   onImageDrop(files) {
@@ -86,7 +102,7 @@ class Home extends React.Component {
                 isOpen={this.state.modalOpen}
     					  onRequestClose={this.closeModal}
                 style={ModalStyle}>
-                <div className="new-pin-title">Create a Pin</div>
+                <div className="create-pin-title">Create a Pin</div>
                 <div className="new-pin-form">
                   <form onSubmit={this.handleSubmit}>
                     <label> Pin name:
@@ -124,8 +140,7 @@ class Home extends React.Component {
                     <label className="new-pin-image">
                       <br />
                     </label>
-
-                    <img src={this.state.pinInfo.image_url} />
+                    {this.state.pinInfo.image_url === "" ? "" : <img src={this.state.pinInfo.image_url} className="dropzone-upload-image"/>}
                       <Dropzone
                         multiple={false}
                         accept="image/*"

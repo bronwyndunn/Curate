@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router';
 class SessionForm extends React.Component {
   constructor(props) {
       super(props);
-      this.state = { 
+      this.state = {
           username: "",
           password: "",
           formType: "signup"
@@ -16,6 +16,7 @@ class SessionForm extends React.Component {
   this.changeForm = this.changeForm.bind(this);
   this.redirect = this.redirect.bind(this);
   this.guestSignIn = this.guestSignIn.bind(this);
+
   }
 
   redirect() {

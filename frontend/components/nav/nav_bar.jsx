@@ -11,8 +11,9 @@ class NavBar extends React.Component {
   }
 
 
+
   handleClick() {
-    this.props.logout().then(hashHistory.push('/signup'));
+    this.props.logout();
 
   }
 

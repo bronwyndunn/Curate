@@ -9,6 +9,8 @@ class PinForm extends React.Component {
   this.state = {
     title: "",
     description: "",
+    image_url: this.props.imageUrl,
+    board_id: ""
   };
   this.handleSubmit = this.handleSubmit.bind(this);
 }
@@ -26,10 +28,11 @@ class PinForm extends React.Component {
 
   render () {
     return(
-      <div className="new-pin-container">
+      <div className="new-pin-form-container">
         <div className="pin-title">Create a Pin</div>
         <div className="new-pin-form">
           <form onSubmit={this.handleSubmit}>
+            <img src={this.state.image_url} />
             <label> Pin name:
               <input
                 type="text"
@@ -47,6 +50,15 @@ class PinForm extends React.Component {
                 className="board-description">
               </input>
             </label>
+
+            <select onChange={this.update("board_id")}>
+              <option selected disabled>--Choose a board--</option>
+              {
+                this.props.user.boards.map(board =>
+                  <option value={board.id} key={board.id}>{board.title}</option>
+                )
+              }
+            </select>
 
             <input type="submit" value="Submit" />
           </form>
