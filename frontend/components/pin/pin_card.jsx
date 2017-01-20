@@ -30,7 +30,7 @@ class PinCard extends React.Component {
     let pinImages;
     if ( pins.length > 0 ) {
 
-      pinImages = pins.map((pin, i) => (
+      pinImages = pins.reverse().map((pin, i) => (
         <div className="single-pin">
           <PinIndexItem pin={pin}></PinIndexItem>
         </div>

@@ -24,7 +24,7 @@ class NavBar extends React.Component {
           <SearchBarContainer />
           <Link to='/'>Feed</Link>
           <Link to='/home'>Profile</Link>
-          <button className="header-button" onClick={this.handleClick}>Log Out</button>
+          <div id="grey-board-title">Boards</div>
           {
             this.props.user.boards.map(function(board, idx) {
               const boardLink = `/boards/${board.id}`;
@@ -35,6 +35,7 @@ class NavBar extends React.Component {
               );
             }, this)
           }
+          <button className="header-button" onClick={this.handleClick}>Log Out</button>
         </div>
       </div>
     );
