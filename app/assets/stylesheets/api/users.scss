@@ -39,6 +39,10 @@
 
 }
 
+.user-boards {
+  flex-wrap: wrap;
+}
+
 .username {
   display: flex;
   line-height: 35px;
@@ -148,4 +152,10 @@
 
 .board-card-container:hover {
   background-color: #efefef;
+}
+
+.user-container {
+  width: 100%;
+  transition: all 0.4s;
+
 }

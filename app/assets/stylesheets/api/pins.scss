@@ -109,6 +109,12 @@
 
 }
 
+.navbar:hover+.user-container {
+  margin-left: 220px;
+  width: calc(100% - 220px);
+
+}
+
 
 .board-pin-container {
     width: 100%;
