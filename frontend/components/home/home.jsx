@@ -30,7 +30,7 @@ class Home extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!nextProps.user) {
+    if (!nextProps.currentUser) {
       hashHistory.push('/signup');
     }
   }
